@@ -1,0 +1,5 @@
+FSharp.Core
+group Test
+FsCheck.Xunit
+FsUnit.xUnit
+xunit.runner.visualstudio

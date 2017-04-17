@@ -1,0 +1,39 @@
+os: Visual Studio 2017
+
+version: 1.0.7.{build}
+
+configuration:
+- Debug
+
+platform: Any CPU
+
+init:
+- ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
+
+install:
+  - ps: Start-FileDownload 'https://download.microsoft.com/download/8/F/9/8F9659B9-E628-4D1A-B6BF-C3004C8C954B/dotnet-1.1.1-sdk-win-x64.exe'
+  - cmd: dotnet-1.1.1-sdk-win-x64.exe /quiet
+  - ps: $env:DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "true"
+
+environment:
+  PATH: $(PATH);$(PROGRAMFILES)\dotnet\
+
+build_script:
+# Restore all
+- dotnet restore src\Linq.Expression.Optimizer.Core\Linq.Expression.Optimizer.Core.csproj
+- dotnet restore tests\Linq.Expression.Optimizer.Tests\Linq.Expression.Optimizer.Tests.csproj
+
+# Build Code
+- dotnet build src\Linq.Expression.Optimizer.Core\Linq.Expression.Optimizer.Core.csproj -c %CONFIGURATION% --framework netstandard1.6
+
+# Build Tests
+- dotnet build tests\Linq.Expression.Optimizer.Tests\Linq.Expression.Optimizer.Tests.csproj -c %CONFIGURATION%
+
+after_test:
+  - nuget.exe install OpenCover -ExcludeVersion
+  - nuget.exe install coveralls.net -ExcludeVersion
+  - pip install codecov
+
+  - cmd: '"OpenCover\tools\OpenCover.Console.exe" -target:dotnet.exe -targetargs:"test tests\Linq.Expression.Optimizer.Tests\Linq.Expression.Optimizer.Tests.csproj --configuration %CONFIGURATION% --no-build" -output:coverage.xml -register:user -filter:"+[Linq.Expression.Optimizer]* -[*Tests*]*" -nodefaultfilters -returntargetcode -oldstyle'
+  - codecov -f "coverage.xml"
+  - coveralls.net\tools\csmacnz.Coveralls.exe --opencover -i .\coverage.xml

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Authors>Stef Heyenrath</Authors>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyName>Linq.Expression.Optimizer.Tests</AssemblyName>
+    <PackageId>Linq.Expression.Optimizer.Tests</PackageId>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Linq.Expression.Optimizer.Core\Linq.Expression.Optimizer.Core.fsproj" />
+    <!--<Reference Include="Linq.Expression.Optimizer.Core">
+      <HintPath>..\..\src\Linq.Expression.Optimizer.Core\bin\Debug\netstandard1.6\Linq.Expression.Optimizer.Core.dll</HintPath>
+    </Reference>-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <PackageReference Include="FSharp.Core" Version="4.1.12" />
+    <PackageReference Include="NFluent" Version="2.0.0-alpha" />
+    <PackageReference Include="OpenCover" Version="4.6.519" />
+    <PackageReference Include="ReportGenerator" Version="2.5.6" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+
+</Project>
