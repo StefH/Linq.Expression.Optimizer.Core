@@ -30,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{28A2228A-4AE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.Expression.Optimizer.Tests", "tests\Linq.Expression.Optimizer.Tests\Linq.Expression.Optimizer.Tests.csproj", "{ABC46323-2BB5-4A0A-A6E1-98721A92F211}"
 EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Linq.Expression.Optimizer.Core", "src\Linq.Expression.Optimizer.Core\Linq.Expression.Optimizer.Core.fsproj", "{F6D584A1-91FD-4946-9760-757EFF5F7967}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{ABC46323-2BB5-4A0A-A6E1-98721A92F211}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABC46323-2BB5-4A0A-A6E1-98721A92F211}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABC46323-2BB5-4A0A-A6E1-98721A92F211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6D584A1-91FD-4946-9760-757EFF5F7967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D584A1-91FD-4946-9760-757EFF5F7967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D584A1-91FD-4946-9760-757EFF5F7967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D584A1-91FD-4946-9760-757EFF5F7967}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +54,9 @@ Global
 		{83F16175-43B1-4C90-A1EE-8E351C33435D} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{8E6D5255-776D-4B61-85F9-73C37AA1FB9A} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{ABC46323-2BB5-4A0A-A6E1-98721A92F211} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{F6D584A1-91FD-4946-9760-757EFF5F7967} = {28A2228A-4AEE-4C13-8A08-D5B55F249A2E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD50DBDF-8931-42F8-A959-2B7F4C84892C}
 	EndGlobalSection
 EndGlobal
